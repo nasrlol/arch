@@ -155,4 +155,3 @@ bar {
 exec_always xrandr --output HDMI-2 --mode 1920x1080 --rate 120
 exec_always feh --bg-fill ~/.config/wp.jpeg
 exec --no-startup-id xset r rate 250 20
-

@@ -18,14 +18,14 @@ export PS1="${RED}\u ${CYAN}\w ${GREEN}→ ${RESET}"
 export XDG_SESSION_TYPE=wayland
 export WLR_BACKENDS="libinput,headless,wayland,x11"
 
+alias push='git push'
+alias add='git add .'
 alias vim=nvim
-
-# Common aliases
 alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 alias gs='git status'
-alias gc='git commit'
+alias gc='git commit -m "quick commit"'
 alias ..='cd ..'
 alias ...='cd ../..'
 
