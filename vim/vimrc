@@ -44,7 +44,6 @@ Plug 'airblade/vim-gitgutter'                 " Git diff in the sign column
 Plug 'vim-scripts/grep.vim'                   " Grep integration
 Plug 'Yggdroot/indentLine'                    " Display indent guides
 Plug 'editor-bootstrap/vim-bootstrap-updater' " Update vim-bootstrap configs
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlighting
 Plug 'jelera/vim-javascript-syntax'           " Enhanced JavaScript syntax
 Plug 'davidhalter/jedi-vim'                   " Python auto-completion
 Plug 'morhetz/gruvbox'                        " Gruvbox color scheme

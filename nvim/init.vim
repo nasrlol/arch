@@ -47,7 +47,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :GBrowse
 Plug 'joshdick/onedark.vim'
-Plug 'Shougo/vimproc.vim', {'do': g:make}
 
 "*****************************************************************************
 "" Custom bundles
