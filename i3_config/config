@@ -136,7 +136,7 @@ bar {
         statusline $id
         separator $rd
 
-        focused_workspace  $fg $fg $fg
+        focused_workspace  $fg $hi $fg
         active_workspace   $hi $hi $hi
         inactive_workspace $bg $bg $id
         urgent_workspace   $bg $rd $id
