@@ -72,9 +72,17 @@ set tabstop=4              " Number of spaces per tab
 set softtabstop=0          " Insert spaces when pressing Tab
 set shiftwidth=4           " Number of spaces for indentation
 set expandtab              " Convert tabs to spaces
+set autoindent
 
 " Use system clipboard
 set clipboard=unnamedplus
+
+" Wrap settings
+set wrap 
+set linebreak
+
+" Disable backup files
+set nobackup
 
 " Bash-like command completion
 set wildmode=longest,list
