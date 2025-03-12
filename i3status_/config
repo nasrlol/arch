@@ -1,0 +1,37 @@
+general {
+        colors = true
+        interval = 1 
+        colors 			= true
+        color_good      = '#88b090'
+        color_degraded  = '#ccdc90'
+        color_bad       = '#e89393'
+}
+
+order += "load"
+order += "time"
+order += "disk /"
+order += "ethernet enp3s0"
+order += "ethernet tailscale0"
+
+disk "/"{
+   format = " %avail "
+}
+
+time {
+        format = "%d-%m %H:%M "
+}
+
+load {
+        format = "%1min "
+}
+
+ethernet enp3s0 {
+        format_up = "E: %ip (%speed)  "
+        format_down = "E: down  "
+}
+
+ethernet tailscale0
+{
+        format_up = "E: %ip (%speed)  "
+        format_down = "E: down  "
+}

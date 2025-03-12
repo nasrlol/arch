@@ -1,0 +1,166 @@
+####################################
+#     I3 CONFIGURATION BY NASR     #
+####################################
+
+# Set the mod key
+set $mod Mod4
+
+# Align the title to the center
+title_align center
+
+# Default window orientation and border
+default_orientation auto
+default_border pixel 5
+
+# Auto start basic software
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+
+# Start a terminal
+bindsym $mod+Return exec alacritty
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start rofi program launcher
+bindsym $mod+d exec --no-startup-id rofi -show drun
+
+# Start rofi ssh
+bindsym $mod+s exec --no-startup-id rofi -show ssh
+
+# Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Window colors
+# class                 border  bground text    indicator child_border
+client.focused          #685FCC #685FCC #BCBCBC #685FCC   #685FCC 
+client.focused_inactive #444862 #444862 #FFFFFF #444862   #444862
+client.unfocused        #393470 #393470 #FFFFFF #393470   #393470
+client.urgent           #A47B7B #A47B7B #FFFFFF #A47B7B   #A47B7B
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+
+# Define names for default workspaces for which we configure key bindings later on
+set $ws1 "CODE"
+set $ws2 "WEB"
+set $ws3 "CLI"
+set $ws4 "SOFTWARE"
+set $ws5 "SSH"
+
+# Switch to workspace
+bindsym $mod+1 workspace  $ws1
+bindsym $mod+2 workspace  $ws2
+bindsym $mod+3 workspace  $ws3
+bindsym $mod+4 workspace  $ws4
+bindsym $mod+5 workspace  $ws5
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+assign [class="jetbrains-idea"] → $ws1
+assign [class="jetbrains-clion"] -> $ws1
+assign [class="jetbrains-webstorm"] -> $ws1
+assign [class="jetbrains-goland"] -> $ws1
+assign [class="code"] -> $ws1
+assign [class="Navigator"] → $ws2
+assign [class="Alacritty"] → $ws3
+
+# Reload i3
+bindsym $mod+Shift+c reload
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end the session' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+# Resizing keybindings
+   bindsym j resize shrink width 5 px or 5 ppt
+      bindsym k resize grow height 5 px or 5 ppt
+      bindsym l resize shrink height 5 px or 5 ppt
+      bindsym semicolon resize grow width 5 px or 5 ppt
+
+# Same bindings, but for the arrow keys
+      bindsym Left resize shrink width 5 px or 5 ppt
+      bindsym Down resize grow height 5 px or 5 ppt
+      bindsym Up resize shrink height 5 px or 5 ppt
+      bindsym Right resize grow width 5 px or 5 ppt
+
+# Back to normal: Enter or Escape or $mod+r
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+      bindsym $mod+r mode "default"
+}
+
+# Gaps between the windows
+gaps inner 7
+gaps outer 7
+
+# Start i3bar to display a workspace bar 
+bar {
+      status_command i3status
+      
+      workspace_buttons yes
+      strip_workspace_numbers no
+
+      position bottom
+      padding 2px  
+      separator_symbol " | "
+      tray_output primary
+      colors {
+         background #1B203C
+         statusline #72A773
+         separator  #CECECE
+
+         focused_workspace  #5B88FF #5B88FF #FFFFFF
+         active_workspace   #1E2C53 #94B7D5 #000000
+         inactive_workspace #444862 #444862 #FFFFFF
+         urgent_workspace   #A47B7B #A47B7B #FFFFFF
+         binding_mode       #A47B7B #A47B7B #FFFFFF
+      }
+# Taskbar workspace width
+   workspace_min_width 120 
+      font pango:JetBrains Mono 14 
+
+# Disable clicking on the bar and enable middle button click screenshots
+      bindsym button1 nop
+      bindsym --release button3 exec --no-startup-id import ~/latest-screenshot.png
+}
+
+# Set the i3 lock screen
+set $i3lockwall i3lock -i ~/.config/lock.png -t
+
+# Display resolution and wallpaper and keyboard speed
+exec_always xrandr --output HDMI-2 --mode 1920x1080 --rate 120
+exec_always feh --bg-fill ~/wallpaper.jpg 
+exec --no-startup-id xset r rate 250 50 
+exec_always xset s off
+exec_always xset -dpms
+exec_always xset s noblank

@@ -1,0 +1,76 @@
+# Alacritty Configuration
+
+# Window settings
+[window]
+opacity = 0.8 # Set window opacity
+decorations_theme_variant = "dark"  # Dark theme variant for decorations
+dynamic_padding = true       # Adjust padding dynamically
+
+# Font settings
+[font]
+normal = { family = "0xProto Nerd Font Mono", style = "Regular" }
+bold = { family = "0xProto Nerd Font Mono", style = "Bold" }
+italic = { family = "0xProto Nerd Font Mono", style = "Italic" }
+size = 11.0                  # Font size in points
+
+[font.offset]
+x = 0                        # Horizontal font offset
+y = 0                        # Vertical font offset
+
+[font.glyph_offset]
+x = 0                        # Horizontal glyph offset
+y = 0                        # Vertical glyph offset
+
+# Cursor settings
+[cursor]
+style = { shape = "Underline", blinking = "Always" }  # Cursor appearance
+vi_mode_style = { shape = "Underline", blinking = "Always" }  # Vi mode cursor
+
+# Colors
+[colors]
+transparent_background_colors = true
+
+[colors.primary]
+background = "#1e1e2e"       # Background color (dark blue-gray)
+foreground = "#cdd6f4"       # Foreground color (soft white)
+
+[colors.cursor]
+text = "#1e1e2e"             # Cursor text color
+cursor = "#f38ba8"           # Cursor color
+
+[colors.selection]
+text = "#ffffff"             # Selected text color
+background = "#45475a"       # Selection background
+
+[colors.normal]
+black = "#1e1e2e"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#cba6f7"
+cyan = "#94e2d5"
+white = "#cdd6f4"
+
+[colors.bright]
+black = "#585b70"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#cba6f7"
+cyan = "#94e2d5"
+white = "#ffffff"
+
+
+# Padding (to complement dynamic padding)
+[window.padding]
+x = 10                       # Horizontal padding
+y = 10                       # Vertical padding
+
+# Scrollback buffer (optional)
+[scrolling]
+history = 10000              # Number of lines in scrollback
+multiplier = 3               # Speed of scrolling
+
+
